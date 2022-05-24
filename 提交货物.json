@@ -1,0 +1,28 @@
+{
+  "data": {
+    "status": "fail",
+    "data": {
+      "errCode": 10002,
+      "errMsg": "一致性问题"
+    }
+  },
+  "status": 200,
+  "statusText": "",
+  "headers": {
+    "content-type": "application/json"
+  },
+  "config": {
+    "transformRequest": {},
+    "transformResponse": {},
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1,
+    "headers": {
+      "Accept": "application/json, text/plain, */*"
+    },
+    "method": "get",
+    "url": "http://localhost:82/item/publishpromo?id=1"
+  },
+  "request": {}
+}
