@@ -3,9 +3,26 @@
 
 const ip = 'localhost'
 // const port = '8081'
-const port = '82'
-export const axiosUrl = `http://${ip}:${port}/`
+// const port = '82'
+const port = '8889'
 
+const dbSecKill={
+    //  host : 'localhost',
+     ip : 'localhost',
+     port :'82'
+}
+
+function makeDbBaseUrl(dbInfo:any){
+    // let  axiosUrl = `http://${dbInfo.host}:${dbInfo.port}/`
+    let  axiosUrl = `http://${dbInfo.ip}:${dbInfo.port}/`
+    return axiosUrl
+}
+
+const dbSecKillUrl=  makeDbBaseUrl(dbSecKill)
+
+export const axiosUrl = `http://${ip}:${port}/`
+console.log("axiosUrl 后端地址");
+console.log(axiosUrl);
 const code = {
     success: 200,
     // codeSuccess = 200;
@@ -16,13 +33,21 @@ const routerDic = {
     exchange: '/exchange',
     city: '/city'
 }
+const configJsonHeader = {
+    headers: {
+        "Content-Type": "application/json;charset=utf-8", // 头部信息
+    },
+};
 
 // 使用 Event Bus
 const Common = {
     axiosUrl,
     debugMode: true,
     code: code,
-    routerDic:routerDic
+    routerDic:routerDic,
+    dbSecKillUrl,
+    configJsonHeader
+
 }
 // Common.debugMode = true
 // let routerDic=function () {

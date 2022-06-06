@@ -63,7 +63,19 @@
       router.push("Promo")
 
     };
+    const toVanListTest =  () => {
+        router.push("VanListTest")
+    };
+    // 怎么去
+    const toSecKill =  () => {
+        router.push("SecKill")
+    };
+        const toItemManager =  () => {
+        router.push("ItemManager")
+    };
 
+
+// Promo
     // 添加商品
     // 发布商品的请求 URL 是：http://82.156.200.100:82/item/publishpromo?id=1（最后的 id 根据你在链接上看到的自己来就行）
 
@@ -76,8 +88,13 @@
     <router-view></router-view>
     <div @click="toGithub">toGithub</div>
     <div @click="toWelcome">toWelcome</div>
-    <div @click="toPublishPromo">toPublishPromo</div>
+    <!-- <div @click="toPublishPromo">toPublishPromo</div> -->
+        <button @click="toPublishPromo">toPublishPromo</button>
     <div @click="toPerson">toPerson</div>
+    <div @click="toVanListTest">toVanListTest</div>
+    <div @click="toSecKill">toSecKill</div>
+      <button @click="toItemManager">toItemManager</button>
+        <!-- <div @click="Promo">Promo</div> -->
 
 
 </template>

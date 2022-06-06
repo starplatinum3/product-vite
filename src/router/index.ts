@@ -18,6 +18,22 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Person',
     component: () => import('../views/Person.vue')
   },
+  {
+    path: '/VanListTest',
+    name: 'VanListTest',
+    component: () => import('../views/VanListTest.vue')
+  },
+  {
+    path: '/ItemManager',
+    name: 'ItemManager',
+    component: () => import('../views/ItemManager.vue')
+  },
+  
+  {
+    path: '/SecKill',
+    name: 'SecKill',
+    component: () => import('../views/SecKill.vue')
+  },
 ]
 
 const router = createRouter({

@@ -6,7 +6,7 @@
   <!--  <button @onclick="getDo">getDo</button>-->
   Promo
   <button @click="getDo2">getDo</button>
-  <!-- <button @click="getAllItems">getAllItems</button> -->
+  <button @click="getAllItems">getAllItems</button>
 
   <!-- <div>{{state.AllItems}}</div> -->
   <!-- <div>{{ AllItems }}</div> -->
@@ -18,19 +18,20 @@
   <div :key="item.id" v-for="item in AllItems">
     <div>{{ item }}</div>
     <button @click="onCreateClick(item)">创建活动</button>
+     <button @click="watchStock(item)">查看库存</button>
+     <!-- <div>库存: {{item.stock}}</div> -->
+         <div>库存: {{item.stockRedis}}</div>
   </div>
 
   <!-- <div>{{ `${person.name}今年${person.age}岁` }}</div>
   <button @click="changeAge">加1岁</button> -->
-  <!-- <button @click="getAll">获得所有</button> -->
+  <button @click="getAll">获得所有</button>
 
   <div :key="item.id" v-for="item in promos">
     <div>{{ item }}</div>
     <button @click="publishPromo(item)">推送活动</button>
-      <button @click="getPromoItem(item)">查看促销商品</button>
-      <div>{{item.item}}</div>
   </div>
-    <button @click="getAllPromos">getAllPromos</button>
+    <!-- <button @click="getAllPromos">getAllPromos</button> -->
 
 
   <!-- <div :key="item.id" v-for="item in items">
@@ -90,17 +91,18 @@ const publishPromo = (item:any) => {
     console.log(res);
   });
 };
-const getPromoItem = (item:any) => {
+
+const watchStock = (item:any) => {
   console.log("get do");
-  // let url=`item/mysql/get?id=${item.itemId}`
-    let url=`item/get?id=${item.itemId}`
-  axios.get(Common.dbSecKillUrl + url).then((res) => {
+  axios.get(Common.dbSecKillUrl + `item/getItemStock?itemId=${item.id}`).then((res) => {
     console.log("res");
     console.log(res);
-    item.item= res.data.data
+   let stock= res.data.data
+    // item.stock=stock
+     item.stockRedis=stock
+    alert(res.data.data)
   });
 };
-
 
 
 
