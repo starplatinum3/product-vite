@@ -92,8 +92,8 @@ const publishPromo = (item:any) => {
 };
 const getPromoItem = (item:any) => {
   console.log("get do");
-  // let url=`item/mysql/get?id=${item.itemId}`
-    let url=`item/get?id=${item.itemId}`
+  let url=`item/mysql/get?id=${item.itemId}`
+    // let url=`item/get?id=${item.itemId}`
   axios.get(Common.dbSecKillUrl + url).then((res) => {
     console.log("res");
     console.log(res);

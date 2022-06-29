@@ -19,8 +19,15 @@
     <div>{{ item }}</div>
     <button @click="onCreateClick(item)">创建活动</button>
      <button @click="watchStock(item)">查看库存</button>
+        <button @click="updateStock(item)">修改库存</button>
      <!-- <div>库存: {{item.stock}}</div> -->
          <div>库存: {{item.stockRedis}}</div>
+         修改为
+         <!-- {{item.updateStock}} -->
+         <!-- <input  type = "text"  v-model = "message" /> -->
+          <input  type = "text"  v-model = "item.updateStock" />
+         <!-- <input></input> -->
+         <!-- <input v-model="item.updateStock"></input> -->
   </div>
 
   <!-- <div>{{ `${person.name}今年${person.age}岁` }}</div>
@@ -113,12 +120,30 @@ const getAll = () => {
     console.log(res);
     // let items=  res.data.data
     // items.se
+    // items.value = res.data.data;
+    // // items=res.data.data
+    // console.log("items");
+    // console.log(items);
+  });
+};
+
+
+const updateStock = (item) => {
+  console.log("get all do");
+  let itemCopy={...item}
+  itemCopy.stock=item.updateStock
+  axios.post(Common.dbSecKillUrl + "item/update",itemCopy).then((res) => {
+    console.log("res");
+    console.log(res);
+    // let items=  res.data.data
+    // items.se
     items.value = res.data.data;
     // items=res.data.data
     console.log("items");
     console.log(items);
   });
 };
+
 
 const getAllItems = () => {
   console.log("get all do");

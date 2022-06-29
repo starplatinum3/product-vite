@@ -12,6 +12,13 @@ const dbSecKill={
      port :'82'
 }
 
+const dbBoe={
+    //  host : 'localhost',
+     ip : 'localhost',
+     port :'8443'
+}
+
+
 function makeDbBaseUrl(dbInfo:any){
     // let  axiosUrl = `http://${dbInfo.host}:${dbInfo.port}/`
     let  axiosUrl = `http://${dbInfo.ip}:${dbInfo.port}/`
@@ -19,7 +26,7 @@ function makeDbBaseUrl(dbInfo:any){
 }
 
 const dbSecKillUrl=  makeDbBaseUrl(dbSecKill)
-
+const dbBoeUrl=  makeDbBaseUrl(dbBoe)
 export const axiosUrl = `http://${ip}:${port}/`
 console.log("axiosUrl 后端地址");
 console.log(axiosUrl);
@@ -46,7 +53,8 @@ const Common = {
     code: code,
     routerDic:routerDic,
     dbSecKillUrl,
-    configJsonHeader
+    configJsonHeader,
+    dbBoeUrl
 
 }
 // Common.debugMode = true
