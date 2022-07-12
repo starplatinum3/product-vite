@@ -22,3 +22,44 @@ vue add element-plus
 git  add .
 git commit -m "publishpromo"
 git push origin master
+
+⚓  Running completion hooks...
+ ERROR  TypeError: Cannot read property 'replace' of undefined
+TypeError: Cannot read property 'replace' of undefined
+    at D:\proj\vue\vite-project\node_modules\vue-cli-plugin-element-plus\generator\index.js:45:45
+    at runGenerator (D:\npm\prefix\node_modules\@vue\cli\lib\invoke.js:132:13)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async invoke (D:\npm\prefix\node_modules\@vue\cli\lib\invoke.js:92:3)
+
+
+    
+Debugger attached.
+failed to load config from D:\proj\vue\vite-project\vite.config.ts
+error when starting dev server:
+Error: The package "esbuild-windows-64" could not be found, and is needed by esbuild.
+
+If you are installing esbuild with npm, make sure that you don't specify the
+"--no-optional" flag. The "optionalDependencies" package.json feature is used
+by esbuild to install the correct binary executable for your current platform.
+    at generateBinPath (D:\proj\vue\vite-project\node_modules\esbuild\lib\main.js:1816:15)
+    at esbuildCommandAndArgs (D:\proj\vue\vite-project\node_modules\esbuild\lib\main.js:1872:31)
+    at ensureServiceIsRunning (D:\proj\vue\vite-project\node_modules\esbuild\lib\main.js:2034:25)
+    at Object.build (D:\proj\vue\vite-project\node_modules\esbuild\lib\main.js:1927:26)
+    at bundleConfigFile (D:\proj\vue\vite-project\node_modules\vite\dist\node\chunks\dep-59dc6e00.js:61872:34)
+    at loadConfigFromFile (D:\proj\vue\vite-project\node_modules\vite\dist\node\chunks\dep-59dc6e00.js:61849:35)
+    at resolveConfig (D:\proj\vue\vite-project\node_modules\vite\dist\node\chunks\dep-59dc6e00.js:61376:34)
+    at createServer (D:\proj\vue\vite-project\node_modules\vite\dist\node\chunks\dep-59dc6e00.js:59783:26)
+    at CAC.<anonymous> (D:\proj\vue\vite-project\node_modules\vite\dist\node\cli.js:688:30)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+Waiting for the debugger to disconnect...
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! vite-project@0.0.0 dev: `vite`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the vite-project@0.0.0 dev script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     D:\npm\cache\_logs\2022-06-29T01_50_55_417Z-debug.log
+Waiting for the debugger to disconnect...
