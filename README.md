@@ -1,5 +1,13 @@
 # Vue 3 + TypeScript + Vite
 
+npm run dev
+文档：Dprojvuevite-projectnpm run dev.note
+链接：http://note.youdao.com/noteshare?id=02fc85445445393e3ec1e934cb836afc
+
+npm i esbuild-windows-64
+
+
+
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
 发布商品的请求 URL 是：http://82.156.200.100:82/item/publishpromo?id=1（最后的 id 根据你在链接上看到的自己来就行）

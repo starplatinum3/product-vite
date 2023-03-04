@@ -34,6 +34,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'SecKill',
     component: () => import('../views/SecKill.vue')
   },
+  // D:\proj\vue\vite-project\src\views\ProductList.vue
+  {
+    path: '/ProductList',
+    name: 'ProductList',
+    component: () => import('../views/ProductList.vue')
+  },
 ]
 
 const router = createRouter({

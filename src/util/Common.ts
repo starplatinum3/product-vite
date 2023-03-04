@@ -5,7 +5,7 @@ const ip = 'localhost'
 // const port = '8081'
 // const port = '82'
 const port = '8889'
-
+// baseUrl: "https://localhost:44384/api",
 const dbSecKill={
     //  host : 'localhost',
      ip : 'localhost',
@@ -28,6 +28,8 @@ function makeDbBaseUrl(dbInfo:any){
 const dbSecKillUrl=  makeDbBaseUrl(dbSecKill)
 const dbBoeUrl=  makeDbBaseUrl(dbBoe)
 export const axiosUrl = `http://${ip}:${port}/`
+// "https://localhost:44384/api"
+const productUrl ="https://localhost:44384/api"
 console.log("axiosUrl 后端地址");
 console.log(axiosUrl);
 const code = {
@@ -54,7 +56,8 @@ const Common = {
     routerDic:routerDic,
     dbSecKillUrl,
     configJsonHeader,
-    dbBoeUrl
+    dbBoeUrl,
+    productUrl
 
 }
 // Common.debugMode = true
