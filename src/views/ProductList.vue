@@ -24,17 +24,36 @@
   <button @click="changeAge">加1岁</button> -->
   <!-- <button @click="getAll">获得所有</button> -->
   <el-button type="" @click="PeoplesGet">PeoplesGet</el-button>
+  <el-button type="" @click="PeoplesGetList">PeoplesGetList</el-button>
+
+  <button @click="getAllPromos">getAllPromos</button>
+
+  <el-button type="" @click="productGetList">productGetList</el-button>
+  <el-button type="" @click="productPost">productPost</el-button>
+  <el-button type="" @click="productPut">productPut</el-button>
+  <el-button type="" @click="productDelete">productDelete</el-button>
+    <el-button type="" @click="productSelectPage">productSelectPage</el-button>
+
+  
+  <div :key="item.id" v-for="item in products">
+    <div>{{ item }}</div>
+    <!-- <button @click="publishPromo(item)">推送活动</button>
+    <button @click="getPromoItem(item)">查看促销商品</button> -->
+    <!-- <el-button type="" @click="PeoplesGet">PeoplesGet</el-button> -->
+    <!-- <van-button type="default" @click="PeoplesGet">PeoplesGet</van-button> -->
+
+    <!-- <div>{{ item.item }}</div> -->
+  </div>
+
   <div :key="item.id" v-for="item in promos">
     <div>{{ item }}</div>
     <button @click="publishPromo(item)">推送活动</button>
-      <button @click="getPromoItem(item)">查看促销商品</button>
-      <!-- <el-button type="" @click="PeoplesGet">PeoplesGet</el-button> -->
-      <!-- <van-button type="default" @click="PeoplesGet">PeoplesGet</van-button> -->
-    
-      <div>{{item.item}}</div>
-  </div>
-    <button @click="getAllPromos">getAllPromos</button>
+    <button @click="getPromoItem(item)">查看促销商品</button>
+    <!-- <el-button type="" @click="PeoplesGet">PeoplesGet</el-button> -->
+    <!-- <van-button type="default" @click="PeoplesGet">PeoplesGet</van-button> -->
 
+    <div>{{ item.item }}</div>
+  </div>
 
   <!-- <div :key="item.id" v-for="item in items">
     {{ item.title }}
@@ -57,6 +76,7 @@ import axios from "axios";
 import { ref } from "vue";
 import Common from "../util/Common";
 import HttpUtil from "../util/HttpUtil";
+import T from "../util/T";
 
 // HttpUtil
 import { reactive } from "vue";
@@ -75,6 +95,8 @@ let items: any = ref([]);
 // let AllItems = ref([]);
 let AllItems: any = ref([]);
 let promos: any = ref([]);
+let products: any = ref([]);
+
 // 需要声明  any
 // defineProps<{ msg: string }>()
 // props
@@ -90,7 +112,6 @@ const getDo2 = () => {
 };
 
 const PeoplesGet = () => {
-  
   console.log("get do productUrl Peoples");
   // fetch(Common.productUrl+ "/Peoples").then((res) => {
   //   console.log("res Peoples");
@@ -101,7 +122,7 @@ const PeoplesGet = () => {
   //   console.log(res);
   // });
 
-  HttpUtil.fetchGet(Common.productUrl+ "/Peoples",{}).then((res) => {
+  HttpUtil.fetchGet(Common.productUrl + "/Peoples", {}).then((res) => {
     console.log("res Peoples");
     console.log(res);
   });
@@ -111,27 +132,136 @@ const PeoplesGet = () => {
   // });
 };
 
+const PeoplesGetList = () => {
+  console.log("get do productUrl Peoples");
 
-const publishPromo = (item:any) => {
-  console.log("get do");
-  axios.get(Common.dbSecKillUrl + `item/publishpromo?id=${item.id}`).then((res) => {
-    console.log("res");
+  HttpUtil.getList(Common.entityName.Peoples)
+    // HttpUtil.fetchGet(Common.productUrl+ "/Peoples",{})
+    .then((res) => {
+      console.log("res Peoples");
+      console.log(res);
+    });
+};
+
+const productPost = () => {
+  // new Date() stringfy
+  let productPostData = {
+    id: null,
+    create_time: new Date(),
+    name: "string",
+    product_code: "string",
+    specification: "string",
+  };
+  // let jsonStr=JSON.stringify(productPostData)
+  console.log("get do productUrl product");
+  // console.log("get do productUrl product jsonStr");
+  // console.log(jsonStr);
+
+  HttpUtil.create(T.product, productPostData).then((res) => {
+    console.log("res Peoples create");
+    console.log(res);
+    // products=res
+    // products.value =res
+  });
+
+  // HttpUtil.create(Common.entityName.product,productPostData).then((res) => {
+  //   console.log("res Peoples create");
+  //   console.log(res);
+  //   // products=res
+  //   // products.value =res
+  // });
+};
+
+const productPut = () => {
+  let productPostData = {
+    id: 4,
+    create_time: new Date(),
+    name: "put4",
+    product_code: "put4",
+    specification: "put4",
+  };
+  // let jsonStr=JSON.stringify(productPostData)
+  console.log("get do productUrl product");
+  // console.log("get do productUrl product jsonStr");
+  // console.log(jsonStr);
+
+  HttpUtil.put(T.product, productPostData).then((res) => {
+    console.log("res Peoples create");
+    console.log(res);
+    // products=res
+    // products.value =res
+  });
+};
+
+const productDelete = () => {
+  let productPostData = {
+    id: 10,
+    create_time: new Date(),
+    name: "put4",
+    product_code: "put4",
+    specification: "put4",
+  };
+  console.log("productDelete productUrl productDelete");
+
+  HttpUtil.delete(T.product, productPostData).then((res) => {
+    console.log("res Peoples create");
     console.log(res);
   });
 };
-const getPromoItem = (item:any) => {
+
+const productSelectPage = () => {
+  // let productPostData = {
+  //   id: 10,
+  //   create_time: new Date(),
+  //   name: "put4",
+  //   product_code: "put4",
+  //   specification: "put4",
+  // };
+  let productPostData = {
+    id: 1,
+    create_time:null,
+    name: null,
+    product_code: null,
+    specification: null,
+  };
+  console.log(" productUrl productSelectPage");
+
+  HttpUtil.selectPage(T.product, productPostData).then((res) => {
+    console.log("res Peoples create");
+    console.log(res);
+  });
+};
+
+const productGetList = () => {
+  console.log("get do productUrl product");
+
+  HttpUtil.getList(Common.entityName.product).then((res) => {
+    console.log("res Peoples");
+    console.log(res);
+    // products=res
+    products.value = res;
+  });
+};
+
+const publishPromo = (item: any) => {
   console.log("get do");
-  let url=`item/mysql/get?id=${item.itemId}`
-    // let url=`item/get?id=${item.itemId}`
+  axios
+    .get(Common.dbSecKillUrl + `item/publishpromo?id=${item.id}`)
+    .then((res) => {
+      console.log("res");
+      console.log(res);
+    });
+};
+const getPromoItem = (item: any) => {
+  console.log("get do");
+  let url = `item/mysql/get?id=${item.itemId}`;
+  // let url=`item/get?id=${item.itemId}`
   axios.get(Common.dbSecKillUrl + url).then((res) => {
     console.log("res");
     console.log(res);
-    item.item= res.data.data
+    item.item = res.data.data;
   });
 };
-
-
-
 
 const getAll = () => {
   console.log("get all do");
@@ -163,7 +293,6 @@ const getAllItems = () => {
   });
 };
 
-
 const getAllPromos = () => {
   console.log("get all do");
   // http://localhost:82/promo/list
@@ -172,7 +301,6 @@ const getAllPromos = () => {
     console.log(res);
     // AllItems.value = res.data;
     promos.value = res.data.data;
-
   });
 };
 
@@ -188,21 +316,25 @@ const onCreateClick = (item: any) => {
   //               };
 
   axios
-    .post(Common.dbSecKillUrl + "promo/create", {
-      id: null,
-      promoName: "promoName",
-      // startDate: "2022/6/4 11:01",
-      itemId: item.id,
-      promoItemPrice: 1.0,
-      // endDate: "2022/6/4 11:01",
-         startDate: null,
-       endDate:null,
-    },Common.configJsonHeader)
+    .post(
+      Common.dbSecKillUrl + "promo/create",
+      {
+        id: null,
+        promoName: "promoName",
+        // startDate: "2022/6/4 11:01",
+        itemId: item.id,
+        promoItemPrice: 1.0,
+        // endDate: "2022/6/4 11:01",
+        startDate: null,
+        endDate: null,
+      },
+      Common.configJsonHeader
+    )
     .then((res) => {
       console.log("res");
       console.log(res);
-      let result= res.data.data
-      alert(result)
+      let result = res.data.data;
+      alert(result);
       // AllItems.value = res.data;
       // AllItems.value = res.data.data;
     });

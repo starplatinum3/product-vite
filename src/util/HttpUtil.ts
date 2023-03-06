@@ -2,6 +2,8 @@
 //   D:\proj\vue\vite-project\src\util\HttpUtil.ts
 // class HttpUtil ts export
 
+import Common from "./Common";
+
     //get请求封装
     const fetchGet = function(url="", params:any) {
         let list = [];
@@ -20,6 +22,31 @@
     };
 class HttpUtil {
     static fetchGet=fetchGet
+    static getList(entityName:string, params:any={}) {
+      return  HttpUtil.fetchGet(Common.productUrl+ "/"+entityName,params)
+        // .then((res) => {
+        //     console.log("res Peoples");
+        //     console.log(res);
+        //   });
+        
+    }
+
+    static create(entityName:string, params:any={}) {
+        return  HttpUtil.postData(Common.productUrl+ "/"+entityName,params)
+      }
+      static delete(entityName:string, params:any={}) {
+        return  HttpUtil.postData(
+            `${Common.productUrl}/${entityName}/delete`,params)
+      }
+      static put(entityName:string, params:any={}) {
+        return  HttpUtil.postData(
+            `${Common.productUrl}/${entityName}/put`,params)
+      }
+      static selectPage(entityName:string, params:any={}) {
+        return  HttpUtil.postData(
+            `${Common.productUrl}/${entityName}/selectPage`,params)
+      }
+    //   [Route("api/product/delete")]
     // function
     // Example POST method implementation:
     static async postData(url = "", data = {}) {

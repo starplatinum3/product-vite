@@ -73,7 +73,7 @@ const Common = {
 
 // Common.code = code
 // Common.routerDic = routerDic
-export default Common
+export default entityName
 // refactoring  preview
 // 没有 do refactor
 
