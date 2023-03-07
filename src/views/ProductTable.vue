@@ -47,6 +47,7 @@
       </el-form-item>
     </el-form>
 
+    <!-- v-hasPermi="['system:post:add']" -->
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
         <el-button
@@ -54,7 +55,7 @@
           plain
           icon="Plus"
           @click="handleAdd"
-          v-hasPermi="['system:post:add']"
+       
           >新增</el-button
         >
       </el-col>
@@ -65,7 +66,7 @@
           icon="Edit"
           :disabled="single"
           @click="handleUpdate"
-          v-hasPermi="['system:post:edit']"
+        
           >修改</el-button
         >
       </el-col>
@@ -76,7 +77,6 @@
           icon="Delete"
           :disabled="multiple"
           @click="handleDelete"
-          v-hasPermi="['system:post:remove']"
           >删除</el-button
         >
       </el-col>
@@ -86,7 +86,6 @@
           plain
           icon="Download"
           @click="handleExport"
-          v-hasPermi="['system:post:export']"
           >导出</el-button
         >
       </el-col>
@@ -128,7 +127,6 @@
             type="primary"
             icon="Edit"
             @click="handleUpdate(scope.row)"
-            v-hasPermi="['system:post:edit']"
             >修改</el-button
           >
           <el-button
@@ -136,7 +134,6 @@
             type="primary"
             icon="Delete"
             @click="handleDelete(scope.row)"
-            v-hasPermi="['system:post:remove']"
             >删除</el-button
           >
         </template>
@@ -257,6 +254,9 @@ function getList() {
   HttpUtil.getList(T.product,queryParams.value)
 //   HttpUtil.getList("system/post/list",queryParams.value)
   .then((response) => {
+    console.log("response il.getList(T.produc");
+    console.log(response);
+
     postList.value = response.rows;
     total.value = response.total;
     loading.value = false;
