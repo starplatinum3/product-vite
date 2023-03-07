@@ -32,9 +32,8 @@
   <el-button type="" @click="productPost">productPost</el-button>
   <el-button type="" @click="productPut">productPut</el-button>
   <el-button type="" @click="productDelete">productDelete</el-button>
-    <el-button type="" @click="productSelectPage">productSelectPage</el-button>
+  <el-button type="" @click="productSelectPage">productSelectPage</el-button>
 
-  
   <div :key="item.id" v-for="item in products">
     <div>{{ item }}</div>
     <!-- <button @click="publishPromo(item)">推送活动</button>
@@ -219,7 +218,7 @@ const productSelectPage = () => {
   // };
   let productPostData = {
     id: 1,
-    create_time:null,
+    create_time: null,
     name: null,
     product_code: null,
     specification: null,

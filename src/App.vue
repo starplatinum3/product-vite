@@ -8,6 +8,12 @@
     </p> -->
     <el-button type="primary">el-button</el-button>
     <el-button type="" @click="ProductListGo">ProductListGo</el-button>
+    <el-button type="" @click="ProductTableGo">ProductTableGo</el-button>
+    <el-button type="" @click="ProductTable1Go">ProductTable1Go</el-button>
+    <el-button type="" @click="TableDemo">TableDemo</el-button>
+
+
+    
   </div>
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <router-view></router-view>
@@ -31,7 +37,17 @@ export default {
       // router.push('/ProductList')
       // vue3 router push
       // console.log("getDo")
-    }
+    },
+    ProductTableGo(){
+      router.push('/ProductTable')
+    },
+    ProductTable1Go(){
+      router.push('/ProductTable1')
+    },
+    TableDemo(){
+      router.push('/TableDemo')
+    },
+    
   }
 }
 </script>

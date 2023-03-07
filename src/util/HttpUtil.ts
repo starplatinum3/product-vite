@@ -4,48 +4,48 @@
 
 import Common from "./Common";
 
-    //get请求封装
-    const fetchGet = function(url="", params:any) {
-        let list = [];
-        for (let key in params) {
-            let str = `${key}=${params[key]}`
-            list.push(str);
-        }
-        const data = list.join('&');
-        let allUrl = `${url}?${data}`;
-        // debugger
-        return fetch(allUrl).then(res => {
-            return res.json();
-        }).catch(err => {
-            console.log(err);
-        });
-    };
+//get请求封装
+const fetchGet = function (url = "", params: any) {
+    let list = [];
+    for (let key in params) {
+        let str = `${key}=${params[key]}`
+        list.push(str);
+    }
+    const data = list.join('&');
+    let allUrl = `${url}?${data}`;
+    // debugger
+    return fetch(allUrl).then(res => {
+        return res.json();
+    }).catch(err => {
+        console.log(err);
+    });
+};
 class HttpUtil {
-    static fetchGet=fetchGet
-    static getList(entityName:string, params:any={}) {
-      return  HttpUtil.fetchGet(Common.productUrl+ "/"+entityName,params)
+    static fetchGet = fetchGet
+    static getList(entityName: string, params: any = {}) {
+        return HttpUtil.fetchGet(Common.productUrl + "/" + entityName, params)
         // .then((res) => {
         //     console.log("res Peoples");
         //     console.log(res);
         //   });
-        
+
     }
 
-    static create(entityName:string, params:any={}) {
-        return  HttpUtil.postData(Common.productUrl+ "/"+entityName,params)
-      }
-      static delete(entityName:string, params:any={}) {
-        return  HttpUtil.postData(
-            `${Common.productUrl}/${entityName}/delete`,params)
-      }
-      static put(entityName:string, params:any={}) {
-        return  HttpUtil.postData(
-            `${Common.productUrl}/${entityName}/put`,params)
-      }
-      static selectPage(entityName:string, params:any={}) {
-        return  HttpUtil.postData(
-            `${Common.productUrl}/${entityName}/selectPage`,params)
-      }
+    static create(entityName: string, params: any = {}) {
+        return HttpUtil.postData(Common.productUrl + "/" + entityName, params)
+    }
+    static delete(entityName: string, params: any = {}) {
+        return HttpUtil.postData(
+            `${Common.productUrl}/${entityName}/delete`, params)
+    }
+    static put(entityName: string, params: any = {}) {
+        return HttpUtil.postData(
+            `${Common.productUrl}/${entityName}/put`, params)
+    }
+    static selectPage(entityName: string, params: any = {}) {
+        return HttpUtil.postData(
+            `${Common.productUrl}/${entityName}/selectPage`, params)
+    }
     //   [Route("api/product/delete")]
     // function
     // Example POST method implementation:

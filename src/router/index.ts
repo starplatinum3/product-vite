@@ -40,6 +40,27 @@ const routes: Array<RouteRecordRaw> = [
     name: 'ProductList',
     component: () => import('../views/ProductList.vue')
   },
+  {
+    path: '/ProductTable',
+    name: 'ProductTable',
+    // component: () => import('../views/ProductTable.vue')
+    // 路由导入：
+    component: () => import('/src/views/ProductTable.vue')
+
+  },
+  {
+    path: '/ProductTable1',
+    name: 'ProductTable1',
+    component: () => import('../views/ProductTable1.vue')
+  },
+  {
+    path: '/TableDemo',
+    name: 'TableDemo',
+    component: () => import('../views/TableDemo.vue')
+  },
+  // D:\proj\vue\vite-project\src\views\TableDemo.vue
+  // D:\proj\vue\vite-project\src\views\ProductTable1.vue
+  // D:\proj\vue\vite-project\src\views\ProductTable.vue
 ]
 
 const router = createRouter({
