@@ -232,6 +232,11 @@ const data = reactive({
     postCode: undefined,
     postName: undefined,
     status: undefined,
+    "name":null ,
+         "id":null ,
+         "specification":null ,
+         "productCode":null ,
+         "createTime":null 
   },
   rules: {
     postName: [
@@ -251,13 +256,29 @@ const { queryParams, form, rules } = toRefs(data);
 /** 查询岗位列表 */
 function getList() {
   loading.value = true;
-  HttpUtil.getList(T.product,queryParams.value)
+
+  for(let o in queryParams.value){
+  let  val=  queryParams.value[o] 
+  console.log("key ");
+
+  console.log(o);
+  console.log(val);
+    if(val==""){
+      queryParams.value[o] =null
+    }
+  }
+  console.log("queryParams.value");
+  console.log(queryParams.value);
+
+
+  HttpUtil.selectPage(T.product,queryParams.value)
+  // HttpUtil.getList(T.product,queryParams.value)
 //   HttpUtil.getList("system/post/list",queryParams.value)
   .then((response) => {
     console.log("response il.getList(T.produc");
     console.log(response);
-
-    postList.value = response.rows;
+    postList.value = response||response.rows;
+    // postList.value = response.rows;
     total.value = response.total;
     loading.value = false;
   });

@@ -34,6 +34,8 @@
   <el-button type="" @click="productDelete">productDelete</el-button>
   <el-button type="" @click="productSelectPage">productSelectPage</el-button>
 
+  <el-button type="" @click="mongoInsertTest">mongoInsertTest</el-button>
+
   <div :key="item.id" v-for="item in products">
     <div>{{ item }}</div>
     <!-- <button @click="publishPromo(item)">推送活动</button>
@@ -142,14 +144,64 @@ const PeoplesGetList = () => {
     });
 };
 
+const mongoInsertTest = () => {
+  console.log("get do productUrl Peoples");
+
+  let data = {
+    id: "1195398?idx=9",
+    titleMessage:
+      "\n                    \n                        产品运营\n                    \n                    \n                                                    7500-8499\n                                                \n                                                            |\n                                浙江省杭州市滨江区                                                        |\n                            全职                            |\n                            本科                        \n                    \n                ",
+    title: "产品运营",
+    salary: "7500-8499",
+    education:
+      "\n                                                            |\n                                浙江省杭州市滨江区                                                        |\n                            全职                            |\n                            本科                        ",
+    jobDetail:
+      "<p><strong>岗位描述：</strong></p><p>1.在快速理解公司业务的基础上，开展产品运营日常工作，包括但不限于部分产品策划、运营需求梳理、维护项目进度表、跟进需求上线时间、梳理沉淀标准使用流程等；</p><p>2.对于业务开展进行支持工作，为前端销售同事提供产品相关支持工作，包括但不限于提供市场物料、培训手册、产品介绍、使用流程介绍等；</p><p>3.履行沟通与支持工作，听取客户实际问题，及时答复并跟踪将问题闭环，提升客户满意度；</p><p>4.总结所负责产品的各类用户反馈问题，并总结成产品或运营优化建议。</p><p><strong>岗位要求：</strong></p><p>1.熟练掌握办公软件，如Word、Excel、PPT等；</p><p>2.热爱教育行业，较强的理解和表达能力，能快速理解业务，对业务逻辑敏感；</p><p>3 .具备良好的沟通协调能力和抗压能力，高度的责任心、具有团队协作精神；</p><p>4.基本掌握一款产品设计软件优先，如墨刀、sketch、axure等。</p><p><strong>工作地点：杭州市滨江区 &nbsp;薪资：</strong><strong>6</strong><strong>k-</strong><strong>8</strong><strong>k</strong></p><p><br></p>",
+    address:
+      "\n                    杭州市滨江区滨安路 1168 号施强广场 1 号楼20 层\n                    点击查看地图                ",
+    mapImg:
+      '<img src="http://api.map.baidu.com/staticimage/v2?ak=zE4Ts9dMMD3FQblaGnifcU6hG0GP2IT1&amp;markers=120.17966510201,30.183712147487&amp;width=800&amp;height=200&amp;zoom=18&amp;markerStyles=l,,0xff0000" alt="">',
+    location_href: "http://career.zucc.edu.cn/job/view/id/1195398?idx=9",
+    detailsList: [
+      { title: "职能类别：", value: "产品/设计/运营" },
+      { title: "招聘人数：", value: "4人" },
+      { title: "工作经验：", value: "不限" },
+      { title: "语言要求：", value: "不限" },
+      { title: "联系人: ", value: "寿清" },
+      { title: "联系人电话: ", value: "0571-88034922" },
+      {
+        title: "需求专业：",
+        value: "【本科】商务英语、日语、汉语言文学、英语",
+      },
+    ],
+  };
+  HttpUtil.postData(`http://localhost:8003/api/all/mongoInsert`, {
+    data: data,
+    collectionName: "job",
+  })
+    // HttpUtil.fetchGet(Common.productUrl+ "/Peoples",{})
+    .then((res) => {
+      console.log("res Peoples");
+      console.log(res);
+    });
+};
+
 const productPost = () => {
   // new Date() stringfy
+  // let productPostData = {
+  //   id: null,
+  //   create_time: new Date(),
+  //   name: "string",
+  //   product_code: "string",
+  //   specification: "string",
+  // };
+
   let productPostData = {
     id: null,
     create_time: new Date(),
-    name: "string",
-    product_code: "string",
-    specification: "string",
+    name: "good",
+    product_code: "good",
+    specification: "good",
   };
   // let jsonStr=JSON.stringify(productPostData)
   console.log("get do productUrl product");
